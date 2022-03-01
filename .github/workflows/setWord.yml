@@ -9,5 +9,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set Word
-        run: ./setWord.sh
+        run: chmod +x ./setWord.sh && ./setWord.sh
         working-directory: .
