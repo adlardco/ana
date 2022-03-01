@@ -2,7 +2,7 @@ name: SetWord
 on:
   workflow_dispatch:
 jobs:
-  build:
+  run:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
