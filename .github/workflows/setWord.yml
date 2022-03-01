@@ -1,0 +1,13 @@
+name: SetWord
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set Word
+        run: ./setWord.sh
+        working-directory: .
