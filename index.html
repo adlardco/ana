@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang=en><head><script type="text/javascript">'use strict';
+function err(e) {
+  try {
+    document.body.innerHTML = `${e.message || e}\n\n${e.stack || ''}`;
+    document.body.style = 'white-space:pre-wrap';
+  } catch (e) {
+    document.body.innerHTML = 'Cannot show error';
+  }
+}
+class App {
+  constructor(dom) {
+    const word = 'cat';
+    const guess = 'tac';
+    this.dom = dom;
+    this.word = word;
+    this.setIndex(-1);
+    for (let i = 0; i < guess.length; i++) {
+      const letter = this.node(i);
+      letter.onclick = () => this.selected(i);
+      letter.innerHTML = guess[i] || '';
+      this.letterStyle(letter);
+    }
+  }
+  selected(id) {
+    try {
+      if (!this.solved) { this.setIndex(Number(id)); }
+    } catch (e) { err(e); }
+  }
+  get solved() {
+    for (let i = 0; i < this.word.length; i++) {
+      if (this.node(i).innerHTML !== this.word.charAt(i)) { return false; }
+    }
+    return true;
+  }
+  node(index) { return index < 0 ? undefined : this.dom('' + index); }
+  setIndex(index) {
+    const oldNode = this.node(this.index === undefined ? -1 : this.index);
+    const node = this.node(index);
+    if (oldNode && node) {
+      const letter = oldNode.innerHTML;
+      oldNode.innerHTML = node.innerHTML;
+      node.innerHTML = letter;
+      index = -1;
+    }
+    if (oldNode || node) {
+      this.letterStyle(oldNode || node, index >= 0);
+    }
+    this.index = index;
+  }
+  letterStyle(node, bold) {
+    const size = this.times(80, 1 / this.word.length);
+    node.style = `display:inline-flex;justify-content:center;align-items:center;
+        height:${size}vw;width:${size}vw;margin:${this.times(size, 0.1)}vw;
+        border-radius:${this.times(size, 0.2)}vw;font-size:${this.times(size, 0.7)}vw;
+        font-weight:${bold ? 'bold' : 'normal'};background-color:#${bold ? '000066' : '660000'}`;
+  }
+  times(num, factor) { return Math.round((num * factor + Number.EPSILON) * 100) / 100; }
+}
+window.addEventListener("error", e => err(e));
+window.addEventListener('load', () => {
+  try {
+    new App(id => document.getElementById(id));
+  } catch (e) { err(e); }
+});</script>    <meta charset="utf-8"><link rel="shortcut icon" href="data:,">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=o">
+</head><body style="display:flex;flex-direction:column;justify-content:center;
+    width:97vw;height:97vh;color:#ffffff;background-color:#000000;
+    align-items:center;user-select:none;font-family:Courier">
+    <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;
+       cursor:cell;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none">
+        <span id="0"></span><span id="1"></span><span id="2"></span><span id="3"></span>
+        <span id="4"></span><span id="5"></span><span id="6"></span><span id="7"></span><span id="8"></span>
+    </div>
+</body></html>
