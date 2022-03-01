@@ -8,4 +8,3 @@ WORD=$(echo ${WORD} | sed "s/[^a-zA-Z]//g" | sed -e 's/\(.*\)/\L\1/')
 SCRAMBLED=$(echo ${WORD} | fold -w1 | shuf | tr -d '\n')
 sed -i "s/this.w=\x27[a-zA-Z]*\x27/this.w='${WORD}'/" ${INDEX}
 sed -i "s/let g=\x27[a-zA-Z]*\x27/let g='${SCRAMBLED}'/" ${INDEX}
-git add . && git commit -am'work' && git push origin main
