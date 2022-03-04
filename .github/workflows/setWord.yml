@@ -16,8 +16,8 @@ jobs:
 
       - name: Commit
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "github-actions"
+          git config --local user.email ${{ secrets.EMAIL_ADDRESS }}
+          git config --local user.name ${{ secrets.USER_NAME }}
           git add --all
           git commit -m"Set Word"
 
