@@ -10,17 +10,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set Word
-        run: chmod +x ./setWord.sh && ./setWord.sh
+      - name: Push
         working-directory: .
-
-      - name: Commit
         run: |
+          chmod +x ./setWord.sh && ./setWord.sh
           git config --local user.email ${{ secrets.EMAIL_ADDRESS }}
           git config --local user.name ${{ secrets.USER_NAME }}
           git add --all
-          git commit -m"Set Word"
-
-      - name: Push
-        run: |
-           git push https://${{ secrets.PAT }}@github.com/adlardco/ana.git
+          git commit -m"Set word"
+          git push https://${{ secrets.PAT }}@github.com/adlardco/ana.git
