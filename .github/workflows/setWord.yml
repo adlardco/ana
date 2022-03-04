@@ -23,4 +23,4 @@ jobs:
 
       - name: Push
         run: |
-           echo TODO
+           git push https://${{ secrets.PAT }}@github.com/adlardco/ana.git
