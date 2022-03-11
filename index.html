@@ -1,37 +1,27 @@
-<html><head><script>class App{
-  constructor(doc){
-   this.n=i=>doc.getElementById(''+i)
-   this.w='battle'
-   let g='atblte'
-   this.i=-1
-   for(let i=0;i<g.length;i++){
-    let l=doc.createElement('span')
-    doc.body.appendChild(l)
-    l.id=''+i
-    l.onclick=()=>{if(this.u())this.s(i)}
-    l.innerHTML=g[i]
-    this.t(l)
-   }
-  }
-  u(){
-   for(let i=0;i<this.w.length;i++){if(this.n(i).innerHTML!==this.w.charAt(i)) return 1}
-   return 0
-  }
-  s(i){
-   let m=this.n(this.i)
-   let n=this.n(i)
-   if(m&&n){
-    let l=m.innerHTML
-    m.innerHTML=n.innerHTML
-    n.innerHTML=l
-    i=-1
-   }
-   if(m||n)this.t(m||n,i>=0)
-   this.i=i
-  }
-  t(n,b){
-   let s=80/this.w.length
-   n.style=`display:inline-flex;justify-content:center;align-items:center;height:${s}vw;width:${s}vw;margin:${0.1*s}vw;font-size:${0.7*s}vw;${b?'font-weight:bold':''};background-color:#${b?'f00':'00f'}`
-  }
-}
-</script><link rel='shortcut icon' href='data:,'></head><body onload='new App(document)' style='display:flex;flex-direction:row;justify-content:center;cursor:cell;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:97vw;height:97vh;background-color:#000;align-items:center;user-select:none'></body></html>
+<html>
+  <head>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel='shortcut icon' href='data:,'>
+  </head>
+  <body onload='new App(document)' 
+        style='
+           display: flex;
+           flex-direction: row;
+           justify-content: center;
+           cursor: cell;
+           -webkit-tap-highlight-color: transparent;
+           -webkit-touch-callout: none;
+           -webkit-user-select: none;
+           -khtml-user-select: none;
+           -moz-user-select: none;
+           -ms-user-select: none;
+           user-select: none;
+           width: 97vw;
+           height: 97vh;
+           background-color: #000;
+           align-items: center;
+           user-select: none;
+           '
+  >
+  </body>
+</html>
