@@ -70,7 +70,7 @@ class App {
     const borderRadius = 0.2 * size;
     const fontSize = 0.7 * size;
     const fontWeight = bold ? 'bold' : 'normal';
-    const backgroundColor = bold ?  '#ffffff' : '#00aa00';
+    const backgroundColor = bold ?  '#888888' : '#00aa00';
     letter.style = `
       display: inline-flex;
       justify-content: center;
