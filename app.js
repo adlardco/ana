@@ -4,7 +4,7 @@ class App {
 
   constructor(doc) {
     this.letter = index => doc.getElementById('' + index);
-    this.word = 'review';
+    this.word = 'itself';
     const guess = 'dloebu';
     this.selectedIndex = -1;
 
