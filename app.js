@@ -4,8 +4,8 @@ class App {
 
   constructor(doc) {
     this.letter = index => doc.getElementById('' + index);
-    this.word = 'double';
-    const guess = 'oduble';
+    this.word = 'symbol';
+    const guess = 'symlbo';
     this.selectedIndex = -1;
 
     for (let index = 0; index < guess.length; index++) {
